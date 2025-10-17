@@ -1,0 +1,887 @@
+/* ===== Reset minimal et variables ===== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box
+}
+
+html {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+html:focus-within {
+    scroll-behavior: smooth
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    line-height: 1.6;
+    color: #141414;
+    background: linear-gradient(135deg, #ffffff 0%, #e8f5e8 20%, #c8e6c9 40%, #a5d6a7 60%, #81c784 80%, #66bb6a 100%);
+    background-attachment: fixed;
+    font-display: swap;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+    font-style: italic;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+:root {
+    --bg: #f0f8f0;
+    --ink: #1a1a1a;
+    --muted: #6b7280;
+    --brand: #3C2F2F;
+    /* brun doux */
+    --accent: #547D57;
+    /* vert principal */
+    --paper: #F5F3EE;
+    /* beige clair */
+    --ring: #0f766e;
+    --container: 1120px;
+    --radius: 16px;
+    --shadow: 0 10px 30px rgba(0, 0, 0, .08);
+}
+
+/* ===== Performance et Accessibilité ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Amélioration du contraste pour l'accessibilité */
+@media (prefers-contrast: high) {
+    :root {
+        --muted: #333333;
+        --shadow: 0 10px 30px rgba(0, 0, 0, .2);
+    }
+}
+
+/* ===== Accessibilité ===== */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden
+}
+
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    background: #fff;
+    color: #000;
+    padding: .5rem .75rem;
+    border: 2px solid #000;
+    border-radius: 8px
+}
+
+:focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 2px
+}
+
+/* ===== Layout ===== */
+.container {
+    max-width: var(--container);
+    margin-inline: auto;
+    padding: 0 1rem
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background: color-mix(in lab, var(--paper) 85%, #fff 15%);
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 10
+}
+
+.bar {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75rem 0
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 700;
+    letter-spacing: .4px;
+    color: var(--brand)
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    max-width: 40px;
+    object-fit: contain;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem
+}
+
+nav a {
+    display: block;
+    padding: .5rem .75rem;
+    border-radius: 999px;
+    text-decoration: none
+}
+
+nav a:is(:hover, :focus-visible) {
+    background: var(--accent);
+    color: #fff
+}
+
+.hero {
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+}
+
+.hero-text {
+    max-width: 600px;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+}
+
+.hero h1 {
+    font-size: clamp(1.8rem, 2.5vw+1rem, 3rem);
+    line-height: 1.2;
+    margin: .2rem 0;
+    color: var(--brand)
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 60ch
+}
+
+.tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 999px;
+    padding: .25rem .6rem;
+    font-size: .85rem
+}
+
+section {
+    padding: 3rem 0
+}
+
+section:not(.hero) h2 {
+    background: #ffffff;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin: 0 0 2rem 0;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+section:not(.hero) .lead {
+    background: #ffffff;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin: 0 0 2rem 0;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+section h2 {
+    font-size: clamp(1.4rem, 1.5vw+1rem, 2rem);
+    margin: 0 0 1rem;
+    color: var(--brand)
+}
+
+section p.lead {
+    color: var(--muted);
+    max-width: 70ch;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ===== Boutique ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem
+}
+
+.card {
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    flex-direction: column
+}
+
+.card figure {
+    background: #f3f4f6;
+    aspect-ratio: 4/3;
+    display: grid;
+    place-items: center;
+    font-size: .9rem;
+    color: #6b7280;
+    margin: 0;
+    overflow: hidden;
+}
+
+.card figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card .body {
+    padding: .9rem
+}
+
+.price {
+    font-weight: 700;
+    color: var(--accent)
+}
+
+.badge {
+    font-size: .75rem;
+    color: #fff;
+    background: var(--brand);
+    padding: .15rem .5rem;
+    border-radius: 999px
+}
+
+/* ===== À propos ===== */
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem
+}
+
+.about > div {
+    background: #ffffff;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.about aside {
+    background: #ffffff;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+/* ===== Contact ===== */
+#contact .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#contact h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#contact p.lead {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Cases d'informations de contact */
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0 1rem 0;
+    max-width: 900px;
+    width: 100%;
+}
+
+.contact-card {
+    background: #ffffff;
+    border-radius: var(--radius);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+}
+
+.contact-card h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+    color: var(--brand);
+    font-weight: 600;
+}
+
+.contact-card p {
+    margin: 0.5rem 0;
+    font-weight: 500;
+    color: var(--ink);
+}
+
+.contact-card .hint {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-weight: 400;
+    margin-top: 0.8rem;
+}
+
+form {
+    display: grid;
+    gap: .8rem;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: left;
+    background: #ffffff;
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.error-message {
+    display: block;
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    min-height: 1.25rem;
+}
+
+.error-message:empty {
+    display: none;
+}
+
+label {
+    font-weight: 600
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: .7rem .8rem;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    font: inherit;
+    background: #fff
+}
+
+textarea {
+    min-height: 120px
+}
+
+.hint {
+    font-size: .9rem;
+    color: var(--muted)
+}
+
+/* ===== FAQ ===== */
+details {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: .75rem 1rem;
+    background: #fff
+}
+
+details+details {
+    margin-top: .75rem
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none
+}
+
+summary::-webkit-details-marker {
+    display: none
+}
+
+/* ===== Footer ===== */
+footer {
+    border-top: 1px solid #e5e7eb;
+    background: var(--paper);
+    padding: 1.25rem 0;
+    color: #374151
+}
+
+.foot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    align-items: center;
+    justify-content: space-between
+}
+
+/* ===== Bouton submit personnalisé ===== */
+button[type="submit"] {
+    appearance: none;
+    border: 0;
+    background: var(--accent);
+    color: #fff;
+    padding: .8rem 1rem;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus-visible {
+    background: #4a7350;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(84, 125, 87, 0.3)
+}
+
+/* ===== Responsif ===== */
+
+/* Tablettes - Format paysage (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .container {
+        padding: 0 2rem;
+    }
+    
+    .hero {
+        min-height: 500px;
+    }
+    
+    .hero-text {
+        max-width: 500px;
+        padding: 1.5rem;
+    }
+    
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .contact-info {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+    
+    nav ul {
+        gap: 2rem;
+    }
+    
+    form {
+        max-width: 500px;
+    }
+}
+
+/* Tablettes - Format portrait et grands mobiles (481px - 767px) */
+@media (max-width: 767px) and (min-width: 481px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .bar {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1rem 0;
+    }
+    
+    nav ul {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .hero {
+        min-height: 400px;
+    }
+    
+    .hero-text {
+        max-width: 100%;
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-card {
+        padding: 1.5rem;
+    }
+    
+    form {
+        max-width: 400px;
+    }
+    
+    .about {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Mobiles (max 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+    
+    /* Header mobile optimisé */
+    .bar {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.75rem 0;
+    }
+    
+    .brand {
+        font-size: 1.2rem;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .logo {
+        height: 35px;
+        max-width: 35px;
+    }
+    
+    nav ul {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+    }
+    
+    nav ul li a {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+        border-radius: 8px;
+        background: var(--paper);
+        text-decoration: none;
+        transition: background 0.2s ease;
+    }
+    
+    nav ul li a:hover {
+        background: var(--accent);
+        color: white;
+    }
+    
+    /* Hero section mobile */
+    .hero {
+        min-height: 350px;
+    }
+    
+    .hero-text {
+        max-width: 100%;
+        padding: 1.25rem;
+        margin: 0.75rem;
+        background: rgba(255, 255, 255, 0.98);
+    }
+    
+    /* Cartes produits mobile */
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    
+    .card {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+    
+    .card figure {
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    /* Contact mobile optimisé */
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 2rem 0 1rem 0;
+    }
+    
+    .contact-card {
+        padding: 1.25rem;
+        border-radius: 12px;
+    }
+    
+    .contact-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .contact-card p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    /* Formulaire mobile */
+    form {
+        max-width: 100%;
+        gap: 1rem;
+    }
+    
+    label {
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+        display: block;
+    }
+    
+    input, textarea, select {
+        padding: 0.75rem;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: 2px solid #e5e7eb;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+    
+    input:focus, textarea:focus, select:focus {
+        border-color: var(--accent);
+        outline: none;
+    }
+    
+    textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+    
+    button[type="submit"] {
+        padding: 1rem;
+        font-size: 1rem;
+        border-radius: 8px;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    
+    /* Section À propos mobile */
+    .about {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .about aside {
+        padding: 1.25rem;
+        border-radius: 12px;
+    }
+    
+    /* FAQ mobile */
+    details {
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    summary {
+        padding: 1rem;
+        font-size: 0.95rem;
+        background: var(--paper);
+        cursor: pointer;
+    }
+    
+    details[open] summary {
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    details p {
+        padding: 1rem;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    /* Typographie mobile */
+    h1 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    .lead {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+    
+    .tag {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .price {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+    
+    .badge {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    /* Footer mobile */
+    .foot {
+        text-align: center;
+        padding: 1.5rem 0;
+    }
+    
+    .foot p {
+        font-size: 0.85rem;
+        margin: 0.25rem 0;
+    }
+    
+    /* Optimisations tactiles */
+    button, a, summary, input, textarea {
+        min-height: 44px; /* Taille minimum recommandée pour le tactile */
+    }
+    
+    /* Scroll horizontal prevention */
+    body {
+        overflow-x: hidden;
+    }
+    
+    * {
+        max-width: 100%;
+    }
+}
+
+/* ===== Optimisations Performance Lighthouse ===== */
+/* Optimisation des animations et GPU */
+.contact-card,
+button[type="submit"],
+.card {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.hero-background img {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Lazy loading et optimisations images */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* Optimisations accessibilité supplémentaires */
+input:invalid {
+    border-color: #dc2626;
+}
+
+input:valid {
+    border-color: #10b981;
+}
+
+/* Focus visible amélioré */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Performance: élimination du FOUC */
+html {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Anciennes règles existantes */
+@media (max-width: 900px) {
+    .about {
+        grid-template-columns: 1fr
+    }
+}

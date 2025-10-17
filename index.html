@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meubles & Co — Mobilier Durable et Écologique | Fabrication Française</title>
+    <meta name="description" content="Découvrez notre gamme de meubles durables en bois massif certifié. Buffets, tables, canapés et chaises conçus pour durer. Fabrication française, finitions non toxiques." />
+    <meta name="keywords" content="meubles, mobilier, bois massif, durable, écologique, français, buffet, table, canapé, chaise" />
+    <meta name="author" content="Meubles & Co" />
+    <meta name="theme-color" content="#547D57" />
+    
+    <!-- Open Graph pour réseaux sociaux -->
+    <meta property="og:title" content="Meubles & Co — Mobilier Durable et Écologique" />
+    <meta property="og:description" content="Découvrez notre gamme de meubles durables en bois massif certifié. Fabrication française, finitions non toxiques." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://meubles-co.fr" />
+    <meta property="og:image" content="img/accueil.png" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Meubles & Co — Mobilier Durable" />
+    <meta name="twitter:description" content="Meubles durables en bois massif certifié. Fabrication française." />
+    <meta name="twitter:image" content="img/accueil.png" />
+    
+    <!-- Favicon optimisé -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.png">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Préchargement de la police système -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- CSS avec préchargement -->
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    
+    <!-- Structured Data pour SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Meubles & Co",
+        "description": "Vendeur de meubles durables en bois massif certifié",
+        "url": "https://meubles-co.fr",
+        "telephone": "01 23 45 67 89",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Rue des Meubles",
+            "addressLocality": "Paris",
+            "postalCode": "75001",
+            "addressCountry": "FR"
+        },
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "priceRange": "€€"
+    }
+    </script>
+</head>
+
+<body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+    <header role="banner">
+        <div class="container bar" aria-label="En-tête">
+            <div class="brand" aria-label="Nom du site">
+                <img src="img/logo.png" alt="Logo Meubles & Co" class="logo" width="40" height="40" loading="eager">
+                <span>Meubles & Co</span>
+            </div>
+            <nav aria-label="Navigation principale">
+                <ul role="list">
+                    <li><a href="#presentation">Présentation</a></li>
+                    <li><a href="#boutique">Boutique</a></li>
+                    <li><a href="#a-propos">À propos</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenu">
+        <!-- ===== Présentation ===== -->
+        <section id="presentation" class="hero" aria-labelledby="t-presentation">
+            <div class="hero-background">
+                <img src="img/accueil.png" alt="Salon moderne avec mobilier élégant et design contemporain"
+                    width="1200" height="600" loading="eager">
+            </div>
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <span class="tag" aria-hidden="true">Nouveautés</span>
+                    <h1 id="t-presentation">Mobilier durable pour intérieurs exigeants</h1>
+                    <p class="lead">Bois certifié, finitions non toxiques, conception pensée pour durer. Notre
+                        ligne allie fonctionnalité, esthétique et impact réduit.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Boutique ===== -->
+        <section id="boutique" aria-labelledby="t-boutique">
+            <div class="container">
+                <h2 id="t-boutique">Boutique</h2>
+                <p class="lead">Sélection essentielle. Prix indicatifs. Chaque carte possède une image avec
+                    texte alternatif, un titre, une courte description et un prix.</p>
+
+                <div class="cards" role="list">
+                    <article class="card" role="listitem">
+                        <figure role="img" aria-label="Buffet en chêne 3 portes">
+                            <img src="img/buffet.png" alt="Buffet Chêne Luma avec 3 portes en chêne massif" width="400" height="300" >
+                        </figure>
+                        <div class="body">
+                            <h3>Buffet Chêne Luma</h3>
+                            <p>Rangements généreux. Finition huilée.</p>
+                            <p class="price" aria-label="Prix neuf cent quatre-vingt-dix-neuf euros">999 €
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="card" role="listitem">
+                        <figure role="img" aria-label="Table de salle à manger extensible">
+                            <img src="img/table.png" alt="Table Extensible Arko de 160 à 240 cm avec mécanisme discret" width="400" height="300" >
+                        </figure>
+                        <div class="body">
+                            <h3>Table Extensible Arko</h3>
+                            <p>De 160 à 240 cm. Mécanisme discret.</p>
+                            <p class="price">1 290 €</p>
+                        </div>
+                    </article>
+
+                    <article class="card" role="listitem">
+                        <figure role="img" aria-label="Canapé 3 places en tissu recyclé">
+                            <img src="img/canapé.png" alt="Canapé Rhea 3 places déhoussable en tissu recyclé" width="400" height="300" >
+                        </figure>
+                        <div class="body">
+                            <h3>Canapé Rhea 3P</h3>
+                            <p>Déhoussable. Tissu recyclé. Confort ferme.</p>
+                            <p class="price">1 150 €</p>
+                        </div>
+                    </article>
+
+                    <article class="card" role="listitem">
+                        <figure role="img" aria-label="Chaise en noyer, assise rembourrée">
+                            <img src="img/chaise.png" alt="Chaise Noyer Vida avec assise tissu et structure noyer" width="400" height="300" >
+                        </figure>
+                        <div class="body">
+                            <h3>Chaise Noyer Vida</h3>
+                            <p>Assise tissu. Structure noyer.</p>
+                            <p class="price">189 €</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== À propos ===== -->
+        <section id="a-propos" aria-labelledby="t-apropos">
+            <div class="container">
+                <h2 id="t-apropos">À propos</h2>
+                <div class="about">
+                    <div>
+                        <p class="lead">Depuis 1998, nous concevons un mobilier sobre et réparable. Chaque
+                            pièce est documentée pour l'entretien et les réparations.</p>
+                        <ul>
+                            <li>Bois issu de forêts gérées durablement.</li>
+                            <li>Pièces détachées disponibles 10 ans.</li>
+                            <li>Finitions à faible COV.</li>
+                        </ul>
+                    </div>
+                    <aside aria-label="Informations clés">
+                        <h3>Engagements</h3>
+                        <p>Empreinte carbone mesurée et réduite. Fabrication européenne. Chaîne
+                            d'approvisionnement transparente.</p>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section id="faq" aria-labelledby="t-faq">
+            <div class="container">
+                <h2 id="t-faq">FAQ</h2>
+                <details>
+                    <summary>Quels matériaux utilisez-vous ?</summary>
+                    <p>Bois massif certifié, placage véritable, acier thermolaqué et tissus recyclés selon les
+                        modèles.</p>
+                </details>
+                <details>
+                    <summary>Livrez-vous et installez-vous les meubles ?</summary>
+                    <p>Livraison en France métropolitaine. Option installation et reprise des emballages
+                        disponible.</p>
+                </details>
+                <details>
+                    <summary>Comment entretenir le bois ?</summary>
+                    <p>Essuyage doux hebdomadaire. Huilage annuel conseillé. Guide d'entretien fourni.</p>
+                </details>
+            </div>
+        </section>
+
+        <!-- ===== Contact ===== -->
+        <section id="contact" aria-labelledby="t-contact">
+            <div class="container">
+                <h2 id="t-contact">Contact</h2>
+                <p class="lead">Réponse sous 2 jours ouvrés. Les champs marqués « * » sont obligatoires.</p>
+
+                <form aria-describedby="hint-contact" method="post" action="#" novalidate>
+                    <div>
+                        <label for="nom">Nom *</label>
+                        <input id="nom" name="nom" type="text" autocomplete="name" required aria-describedby="nom-error" aria-invalid="false" />
+                        <span id="nom-error" class="error-message" role="alert" aria-live="polite"></span>
+                    </div>
+                    <div>
+                        <label for="email">Email *</label>
+                        <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" aria-invalid="false" />
+                        <span id="email-error" class="error-message" role="alert" aria-live="polite"></span>
+                    </div>
+                    <div>
+                        <label for="sujet">Sujet</label>
+                        <input id="sujet" name="sujet" type="text" autocomplete="off" />
+                    </div>
+                    <div>
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required aria-describedby="message-error" aria-invalid="false" rows="5"></textarea>
+                        <span id="message-error" class="error-message" role="alert" aria-live="polite"></span>
+                    </div>
+                    <p class="hint" id="hint-contact">Ce formulaire est un gabarit HTML. Branchez-le à votre
+                        traitement côté serveur.</p>
+                    <button type="submit" aria-describedby="hint-contact">Envoyer le message</button>
+                </form>
+                
+                <!-- Informations de contact -->
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>📞 Téléphone</h3>
+                        <p>01 23 45 67 89</p>
+                        <p class="hint">Du lundi au vendredi<br>9h - 18h</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>📍 Adresse</h3>
+                        <p>123 Rue des Meubles<br>75001 Paris</p>
+                        <p class="hint">Showroom sur rendez-vous</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>✉️ Email</h3>
+                        <p>contact@meubles-co.fr</p>
+                        <p class="hint">Réponse garantie<br>sous 24h</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container foot">
+            <p>&copy; <span aria-hidden="true">2025</span> Meubles & Co</p>
+            <p><a href="#presentation">Haut de page</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>
