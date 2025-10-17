@@ -10,6 +10,10 @@
     <meta name="author" content="Meubles & Co" />
     <meta name="theme-color" content="#547D57" />
     
+    <!-- Optimisations modernes -->
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
     <!-- Open Graph pour réseaux sociaux -->
     <meta property="og:title" content="Meubles & Co — Mobilier Durable et Écologique" />
     <meta property="og:description" content="Découvrez notre gamme de meubles durables en bois massif certifié. Fabrication française, finitions non toxiques." />
@@ -35,6 +39,12 @@
     <!-- CSS avec préchargement -->
     <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
+    
+    <!-- Sécurité Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'self';">
+    
+    <!-- Politique de référent -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     
     <!-- Structured Data pour SEO -->
     <script type="application/ld+json">
