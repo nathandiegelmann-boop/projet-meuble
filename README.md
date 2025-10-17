@@ -5,7 +5,6 @@
 ```
 projet meuble/
 ├── index.html              # Version propre du site
-├── exo_meuble (1).html     # Version originale modifiée
 ├── style.css               # Styles CSS séparés
 └── README.md               # Ce fichier
 ```
