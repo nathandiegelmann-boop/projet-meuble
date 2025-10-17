@@ -29,6 +29,10 @@ body {
     background-attachment: fixed;
     font-display: swap;
     overflow-x: hidden;
+    /* Optimisations de performance */
+    font-synthesis: none;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
 }
 
 img {
@@ -450,7 +454,11 @@ select {
     border: 1px solid #d1d5db;
     border-radius: 12px;
     font: inherit;
-    background: #fff
+    background: #fff;
+    /* Optimisations CSS pour les formulaires */
+    -webkit-appearance: none;
+    appearance: none;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 textarea {

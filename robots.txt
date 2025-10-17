@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://meubles-co.fr/sitemap.xml
+
+# Directives de crawl optimisées
+Crawl-delay: 1
+
+# Bloquer l'accès aux fichiers sensibles
+Disallow: /.git/
+Disallow: /.htaccess
+Disallow: /README.md

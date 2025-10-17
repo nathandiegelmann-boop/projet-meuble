@@ -36,14 +36,15 @@
     <!-- Préchargement de la police système -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- CSS avec préchargement -->
-    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    <!-- CSS avec chargement sécurisé -->
+    <link rel="stylesheet" href="style.css">
     
-    <!-- Sécurité Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'self';">
-    
-    <!-- Politique de référent -->
+    <!-- Headers de sécurité renforcés -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
     <!-- Structured Data pour SEO -->
@@ -215,12 +216,12 @@
                 <form aria-describedby="hint-contact" method="post" action="#" novalidate>
                     <div>
                         <label for="nom">Nom *</label>
-                        <input id="nom" name="nom" type="text" autocomplete="name" required aria-describedby="nom-error" aria-invalid="false" />
+                        <input id="nom" name="nom" type="text" autocomplete="name" required aria-describedby="nom-error" aria-invalid="false" spellcheck="false" />
                         <span id="nom-error" class="error-message" role="alert" aria-live="polite"></span>
                     </div>
                     <div>
                         <label for="email">Email *</label>
-                        <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" aria-invalid="false" />
+                        <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" aria-invalid="false" spellcheck="false" />
                         <span id="email-error" class="error-message" role="alert" aria-live="polite"></span>
                     </div>
                     <div>

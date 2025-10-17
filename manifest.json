@@ -1,0 +1,28 @@
+{
+    "name": "Meubles & Co - Mobilier Durable et Écologique",
+    "short_name": "Meubles & Co",
+    "description": "Découvrez notre gamme de meubles durables en bois massif certifié. Fabrication française, finitions non toxiques.",
+    "start_url": "./",
+    "display": "standalone",
+    "background_color": "#e8f5e8",
+    "theme_color": "#547D57",
+    "orientation": "portrait-primary",
+    "scope": "./",
+    "lang": "fr",
+    "dir": "ltr",
+    "categories": ["shopping", "lifestyle", "furniture"],
+    "icons": [
+        {
+            "src": "img/favicon.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "img/favicon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
