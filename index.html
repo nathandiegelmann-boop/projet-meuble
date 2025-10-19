@@ -33,11 +33,75 @@
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.png">
     <link rel="manifest" href="manifest.json">
     
-    <!-- Préchargement de la police système -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Optimisations de performance -->
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    <link rel="preload" href="img/accueil.png" as="image">
+    <link rel="preload" href="img/logo.png" as="image">
     
-    <!-- CSS avec chargement sécurisé -->
-    <link rel="stylesheet" href="style.css">
+    <!-- DNS Prefetch pour les domaines externes -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <!-- Script d'optimisation du chargement CSS -->
+    <script>
+        !function(e){"use strict";var t=function(t,n,r){function o(e){return i.body?e():void setTimeout(function(){o(e)})}function a(){d.addEventListener&&d.removeEventListener("load",a),d.media=r||"all"}var i=e.document,d=i.createElement("link");if(n)d.href=n;else{var s=(i.body||i.getElementsByTagName("head")[0]).childNodes;d.href=s[s.length-1].href}d.rel="stylesheet",d.addEventListener?d.addEventListener("load",a):(d.onloadcssdefined=a,d.onloadcssdefined()),o(function(){i.head.appendChild(d)})};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this);
+        if (!window.loadCSS) { document.write('<link rel="stylesheet" href="style.css">'); }
+        
+        // Optimisation du défilement
+        if ('scrollBehavior' in document.documentElement.style) {
+            document.documentElement.style.scrollBehavior = 'smooth';
+        }
+        
+        // Optimisation des images lazy loading
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        }
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
+            });
+        }
+        
+        // Optimisation du scroll avec throttling
+        let ticking = false;
+        function updateScrollEffects() {
+            const scrollY = window.pageYOffset;
+            const header = document.querySelector('header');
+            
+            if (header) {
+                if (scrollY > 50) {
+                    header.style.transform = 'translateY(0) translateZ(0)';
+                    header.style.opacity = '0.98';
+                } else {
+                    header.style.transform = 'translateY(0) translateZ(0)';
+                    header.style.opacity = '1';
+                }
+            }
+            
+            ticking = false;
+        }
+        
+        function requestScrollUpdate() {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollEffects);
+                ticking = true;
+            }
+        }
+        
+        // Défilement optimisé
+        document.addEventListener('scroll', requestScrollUpdate, { passive: true });
+    </script>
     
     <!-- Headers de sécurité renforcés -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';">
@@ -155,7 +219,7 @@
                 <div class="cards" role="list">
                     <article class="card" role="listitem">
                         <figure role="img" aria-label="Buffet en chêne 3 portes">
-                            <img src="img/buffet.png" alt="Buffet Chêne Luma avec 3 portes en chêne massif" width="400" height="300" >
+                            <img src="img/buffet.png" alt="Buffet Chêne Luma avec 3 portes en chêne massif" width="400" height="300" loading="lazy" decoding="async">
                         </figure>
                         <div class="body">
                             <h3>Buffet Chêne Luma</h3>
@@ -167,7 +231,7 @@
 
                     <article class="card" role="listitem">
                         <figure role="img" aria-label="Table de salle à manger extensible">
-                            <img src="img/table.png" alt="Table Extensible Arko de 160 à 240 cm avec mécanisme discret" width="400" height="300" >
+                            <img src="img/table.png" alt="Table Extensible Arko de 160 à 240 cm avec mécanisme discret" width="400" height="300" loading="lazy" decoding="async">
                         </figure>
                         <div class="body">
                             <h3>Table Extensible Arko</h3>
@@ -178,7 +242,7 @@
 
                     <article class="card" role="listitem">
                         <figure role="img" aria-label="Canapé 3 places en tissu recyclé">
-                            <img src="img/canapé.png" alt="Canapé Rhea 3 places déhoussable en tissu recyclé" width="400" height="300" >
+                            <img src="img/canapé.png" alt="Canapé Rhea 3 places déhoussable en tissu recyclé" width="400" height="300" loading="lazy" decoding="async">
                         </figure>
                         <div class="body">
                             <h3>Canapé Rhea 3P</h3>
@@ -189,7 +253,7 @@
 
                     <article class="card" role="listitem">
                         <figure role="img" aria-label="Chaise en noyer, assise rembourrée">
-                            <img src="img/chaise.png" alt="Chaise Noyer Vida avec assise tissu et structure noyer" width="400" height="300" >
+                            <img src="img/chaise.png" alt="Chaise Noyer Vida avec assise tissu et structure noyer" width="400" height="300" loading="lazy" decoding="async">
                         </figure>
                         <div class="body">
                             <h3>Chaise Noyer Vida</h3>

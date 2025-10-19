@@ -3,9 +3,47 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    /* Optimisation GPU pour tous les éléments */
+    /* Optimisations de performance globales */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimisations globales de performance */
+* {
+    /* Amélioration des animations et transitions */
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Préparation GPU pour les éléments animés */
+[class*="card"],
+[class*="button"],
+[class*="hero"],
+header {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Optimisation media queries pour les performances */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Optimisation pour les écrans haute résolution */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .card,
+    header,
+    .hero {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
 }
 
 html {
@@ -113,11 +151,14 @@ a {
     outline-offset: 2px
 }
 
-/* ===== Layout ===== */
+/* ===== Layout et optimisations GPU ===== */
 .container {
     max-width: var(--container);
     margin-inline: auto;
     padding: 0 2rem;
+    /* Optimisations de performance */
+    transform: translateZ(0);
+    will-change: auto;
 }
 
 @media (min-width: 1400px) {
@@ -135,6 +176,9 @@ header {
     border-bottom: 1px solid rgba(51, 153, 255, 0.1);
     z-index: 10;
     box-shadow: 0 1px 20px rgba(51, 153, 255, 0.08);
+    /* Optimisations de performance */
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .bar {
@@ -410,9 +454,12 @@ section p.lead {
     display: flex;
     flex-direction: column;
     box-shadow: 0 10px 40px rgba(51, 153, 255, 0.1);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.2);
     position: relative;
+    /* Optimisations de performance */
+    contain: layout style paint;
+    transform: translateZ(0);
 }
 
 .card::before {
